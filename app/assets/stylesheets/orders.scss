@@ -1,0 +1,121 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lock-icon { display: inline-block; background: image-url('lock.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+ 
+.lock { background-position: -2px -0px; width: 50px; height: 50px; float: right; margin-top: -5px;}
+.unlock { background-position: -2px -52px; width: 50px; height: 50px; }
+
+.mark-input-red {
+  border: 2px dashed red !important;
+}
+
+a.white-color-btn {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.error-container {
+  margin:0 auto;
+  margin-bottom: 15px !important;
+  padding: 15px;
+  text-align: center;
+}
+
+.error-container .error-msg {
+  color: #8b0000;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.product-thumb {
+  width:56px;
+  height:75px;
+}
+
+.productHeader {
+	overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.productHeader h2{
+	line-height: 1.1em;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.productHeader h2 {
+  margin-bottom: 0;
+}
+
+.productHeader .c8 {
+  text-align: left;
+}
+
+.productRow:nth-child(even) {
+	background: rgba(50, 18, 156, 0.35);	
+}
+
+.productDesc p{
+	margin-bottom: 0;
+	line-height: 1.1em;
+}
+
+.productRow {
+  overflow: hidden;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px !important;
+}
+
+.productList {
+  padding-top: 0px !important;
+}
+
+.productQ {
+  margin-top: 0px !important;
+  text-align: center;
+}
+
+.productHeader p {
+  margin-bottom: 0px !important;
+}
+
+.product-title {
+  display: block;
+  margin-bottom: 0px;
+  line-height: 1.5em;
+}
+
+.error-container {
+  margin: 0 auto;
+  text-align: center;
+  color: #a94442;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  margin-top: 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+.min-qty-error{
+  float: right;
+  margin: 0 auto;
+  text-align: center;
+  color: #a94442;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  width: 50%;
+}

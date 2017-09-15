@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - Lexicon</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="vilotBgColor success orderFinal">
+    <div class="pageWrap">
+        <!-- Header -->
+        <div class="header rPos">
+            <div class="headerBg"></div>
+            <div class="overlayVilot"></div>
+            <div class="grid rPos">
+                <div class="row">
+                    <div class="c2">
+                        <div class="logo">
+                            <a href="/"><%= image_tag "logo.png", alt: 'Lexicon' %></a>
+                        </div>
+                    </div>
+
+                    <div class="c10">
+                        <div class="navigation">
+                            <ul>
+                                <li>
+                                  <%= mail_to support_email, "SUPPORT", class: 'primaryButton' %>&nbsp;
+                                  <% if current_user -%>
+                                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "primaryButton" -%>
+                                  <% else -%>  
+                                    <%= link_to "Log in", new_session_path(:user), class: 'primaryButton' %>
+                                  <% end -%>  
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main rPos primaryColor">
+            <div class="grid">
+                <div class="row">
+                    <div class="c12">
+                        <h1><%= post_order_title @order -%></h1>
+                        <p>
+                          
+                          <p>
+                            Order Details:<br/><br/>
+                            <span style="font-size:20px;text-transform: uppercase;">Order ID# <%= @order.id -%></span><br/>
+                            <% @order.order_items.each do |li| %>
+                              <% high_qty_css = (@order.waiting_approval? && li.high_quantity?) ? "color:#f44336;" : "" -%>
+                              <span style="<%= high_qty_css -%>"><%= "#{li.product.name} - Quantity: #{li.quantity}"%></span>
+                              <br/>
+                            <% end -%>
+                          </p>
+
+                          <strong>Shipping Info:</strong>
+                          <br/>
+                          <%= current_user.full_name -%><br/>
+                          <%= current_user.full_address.html_safe -%><br/><br/>
+                          Your order is being shipped through Fed Ex One Rate. Please allow 2-4 business days.
+                          <br/>
+                          
+                          Make an error? Need to change something? Please contact support
+                          <br/><br/>
+                          *Resources marked ON HOLD are currently back-ordered. They will be shipped when inventory is in stock.
+                          <br/>
+                          <% if @order.waiting_approval? %>
+                            <br/>
+                            <div class="error-container-2">
+                              <span class="error-msg">
+                                <strong>*</strong> Resources that appear red require approval. You will receive an email if approved or rejected.
+                              </span>
+                            </div>
+                          <% end -%>
+                          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer rPos">
+        <div class="grid">
+            <div class="row">
+                <div class="c2">
+                    <div class="footerLogo">
+                        <%= image_tag "logo.png", alt: 'Lexicon' %>
+                    </div>
+                </div>
+                <div class="c10">
+                    <p>Corporate Headquarters: 8800 Technology Forest Place • The Woodlands, Texas 77381-1160</p>
+                    <p>Phone: 281.863.3000 | Toll Free: 855.828.4651 | Fax: 281.863.8088</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

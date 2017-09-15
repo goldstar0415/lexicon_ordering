@@ -1,0 +1,136 @@
+@media all and (max-width:768px){
+
+.logo{
+text-align: center;
+margin: 0 auto;
+}
+
+
+.navigation{
+float: none !important;
+}
+
+
+.productHeader{
+display: block;
+}
+
+
+.productRow {
+display: block;
+position: relative;
+font-size: 12px;
+}
+
+
+.productRow>div:first-child{
+width: 24% !important;
+position: relative;
+max-width: 100px;
+float: left;
+min-height: 100px;
+}
+
+
+.productImage{
+display: inline-block;
+}
+
+
+.productRow>div:nth-child(2){
+width: 72% !important;;
+padding: 0;
+min-height: 100px;
+}
+
+
+.productRow>div:nth-child(3){
+width: 33% !important;
+margin-top: 15px;
+}
+
+
+.productRow>div:nth-child(4){
+width: 33% !important;
+margin-top: 15px;
+}
+
+
+.productRow>div:last-child{
+width: 33% !important;
+margin-top: 15px;
+}
+
+
+.productRow>div:nth-child(3):before{
+content: 'Min Quantity';
+text-align: center;
+width: 100%;
+top: -30px;
+margin-left: -20px;
+position: absolute;
+}
+
+
+.productRow>div:nth-child(4):before{
+content: 'Max Quantity';
+text-align: center;
+width: 100%;
+top: -30px;
+margin-left: -20px;
+position: absolute;
+}
+
+.productRow>div:nth-child(5):before{
+content: 'Quantity';
+text-align: center;
+width: 100%;
+top: -30px;
+margin-left: -20px;
+position: absolute;
+}
+
+
+.productHeader .c1, .productHeader .c2{
+display: none;
+}
+
+
+.product-title{
+font-size: 20px;
+line-height: 1.1em;
+margin-bottom: 5px;
+}
+
+
+.productQ input{
+width: 100% !important;
+}
+
+
+.primaryButton{
+  padding: 10px !important;
+  font-size: 12px;
+}
+
+
+.productHeader h2{
+  font-size: 20px;
+  text-align: center;
+}
+
+
+.productHeader p{
+  line-height: 1.1em;
+	margin-top: 10px;
+	font-size: 11px;
+	text-align: center;
+}
+
+
+.footer p{
+  font-size: 11px;
+  text-align: center;
+}
+
+}

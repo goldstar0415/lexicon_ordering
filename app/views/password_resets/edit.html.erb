@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexicon</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="transparent home welcompage">
+    <div class="bodyBg"></div>
+    <div class="overlayBlue"></div>
+    <div class="pageWrap">
+        <!-- Header -->
+        <div class="header rPos">
+            <div class="grid rPos">
+                <div class="row">
+                    <div class="c2">
+                        <div class="logo">
+                            <a href="/"><%= image_tag "logo.png", alt: 'Lexicon' %></a>
+                        </div>
+                    </div>
+
+                    <div class="c10">
+                        <h1 class="primaryColor headerTitle">Lexicon Resource and Materials Center</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main rPos primaryColor">
+            <div class="grid">
+                <div class="row">
+                    <div class="c16 s3">
+
+
+												<% provide(:title, 'Reset password') %>
+												<!-- <h1>Reset password</h1> -->
+
+												<div class="row">
+												  <div class="col-md-6 col-md-offset-3">
+												    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+
+												      <%= hidden_field_tag :email, @user.email %>
+
+												      <%= f.label :password %><br />
+												      <%= f.password_field :password, autofocus: true %>
+															<br/>
+												      <%= f.label :password_confirmation, "Confirmation" %><br />
+												      <%= f.password_field :password_confirmation %>
+															
+															<br/>
+															<div class="actions">
+													      <%= f.submit "Update password", id: "update-form-submit", style: "display:none;"  %>
+													      <a class="primaryButton" style="display:block;width:120px;text-align:center;" href="#" onclick="document.getElementById('update-form-submit').click();return false;">Submit</a>
+													    </div>
+												    <% end %>
+												  </div>
+												</div>
+												
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Footer -->
+    <div class="footer rPos">
+        <div class="grid">
+            <div class="row">
+                <div class="c2">
+                    <div class="footerLogo">
+                        <%= image_tag "logo.png", alt: 'Lexicon' %>
+                    </div>
+                </div>
+                <div class="c10">
+                    <p>Corporate Headquarters: 8800 Technology Forest Place &bull; The Woodlands, Texas 77381-1160</p>
+                    <p>Phone: 281.863.3000 | Toll Free: 855.828.4651 | Fax: 281.863.8088</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+</body>
+</html>

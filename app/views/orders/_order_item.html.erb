@@ -1,0 +1,46 @@
+<div class="productRow product-1">
+    <div class="c1">
+        <div class="productImage">
+          <a class="fancybox" href="<%= f.object.product.image.url -%>">
+            <%= image_tag f.object.product.image.url(:thumb), alt: "product", class: 'product-thumb' %>
+            <div class="cContainer">
+                <%= image_tag "cameraphoto.png", alt: "Zoom Image" -%>
+            </div>
+          </a>
+        </div>
+    </div>
+
+    <div class="c7">
+        <div class="productDesc">
+            <p>
+              <span class="product-title"><%= f.object.product.name %></span>
+              <%= f.object.product.description -%>
+              <% if f.object.errors.any? %>
+                <br/>
+                <small class="min-qty-error"><%= f.object.errors.full_messages.first -%></small>
+              <% end -%>
+            </p>
+        </div>
+    </div>
+
+    <div class="c1">
+      <div class="productMinQ">
+        <p><%= f.object.min_qty_level %></p>
+      </div>
+    </div>
+
+    <div class="c1">
+      <div class="productMinQ">
+        <%= content_tag :p, class: "tool-tip-para", data: {min: f.object.min_qty_level, max: f.object.max_qty_level, "tooltip-content": "#tooltip_content_info_para"} do %>
+          <%= f.object.max_qty_level %><span class='green'>*</span></p>
+        <% end -%>  
+      </div>
+    </div>
+    
+    <div class="c2">
+      <div class="productQ">
+        <%= f.text_field :quantity, type: :number, data: {min: f.object.min_qty_level, max: f.object.max_qty_level, "tooltip-content": "#tooltip_content_info"}, class: "quantity-input", required: true %>
+        <%= f.hidden_field :product_id %>
+      </div>
+    </div>
+</div>
