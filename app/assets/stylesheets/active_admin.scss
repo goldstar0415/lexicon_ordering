@@ -10,7 +10,8 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-
+@import "tooltipster-sideTip-noir";
+@import "tooltipster.bundle";
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
@@ -19,9 +20,10 @@
 
 .has_many_container.quantity_levels {display: none;}
 .high_quantity {color: red;}
+.fit_quantity {color: black;}
 
 form.formtastic fieldset ol li.fl {
-  float: left; 
+  float: left;
   margin-right: 2em;
 }
 

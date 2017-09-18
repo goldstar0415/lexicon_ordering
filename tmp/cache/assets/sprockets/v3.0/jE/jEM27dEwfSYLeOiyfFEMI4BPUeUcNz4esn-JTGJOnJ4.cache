@@ -1,0 +1,17 @@
+I"õ(function() {
+  $('.edit-quantity-btn').click(function() {
+    $('.edit-quantity-btn').prev().prev().hide();
+    $('.edit-quantity-btn').prev().show();
+    $('.edit-quantity-btn').next().show();
+    $('.edit-quantity-btn').hide();
+  });
+
+  $('.cancel-quantity-btn').click(function() {
+    $('.cancel-quantity-btn').prev().prev().prev().show();
+    $('.cancel-quantity-btn').prev().prev().hide();
+    $('.cancel-quantity-btn').hide();
+    $('.cancel-quantity-btn').prev().show();
+  });
+
+}).call(this);
+:ET

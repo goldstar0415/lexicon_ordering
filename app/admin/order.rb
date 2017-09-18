@@ -1,9 +1,9 @@
 ActiveAdmin.register Order do
-  
+
   scope :success, :default => true
   scope :waiting_approval, default: true
   scope :rejected
-  
+
   filter :id
   filter :user
   filter :user_level
@@ -11,10 +11,10 @@ ActiveAdmin.register Order do
     :as => :select,
     :label => 'Resource',
     :collection => proc { Product.order(:name) }
-  
-  
+
+
   actions :all, :except => [:destroy, :new]
-  
+
   csv do
     column("Order ID") { |o| o.id }
     column('User Name') { |o| o.user.full_name }
@@ -25,13 +25,13 @@ ActiveAdmin.register Order do
     column('Total Resources') { |o| o.order_items.sum(&:quantity) }
     column('Date Created') { |o| o.created_at }
   end
-  
+
   controller do
     def update
       update! {admin_orders_path(scope: 'waiting_approval')}
     end
   end
-  
+
   index do
     selectable_column
     id_column
@@ -52,7 +52,7 @@ ActiveAdmin.register Order do
       end
     end
   end
-  
+
   member_action :change_status, method: :get do
     resource.status = "success"
     if resource.save
@@ -63,8 +63,8 @@ ActiveAdmin.register Order do
     end
     redirect_back(fallback_location: "/admin")
   end
-  
-  
+
+
   permit_params :reason_for_rejection, :status
 
   form do |f|
@@ -74,7 +74,7 @@ ActiveAdmin.register Order do
     end
     f.actions
   end
-  
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

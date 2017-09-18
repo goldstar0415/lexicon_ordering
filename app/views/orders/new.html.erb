@@ -32,9 +32,9 @@
                                   <%= mail_to support_email, "SUPPORT", class: 'primaryButton' %>&nbsp;
                                   <% if current_user -%>
                                     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "primaryButton" -%>
-                                  <% else -%>  
+                                  <% else -%>
                                     <%= link_to "Log in", new_session_path(:user), class: 'primaryButton' %>
-                                  <% end -%>  
+                                  <% end -%>
                                 </li>
                             </ul>
                         </div>
@@ -52,11 +52,11 @@
                             <h2>LEXICON MARKETING MATERIALS</h2>
                             <p class="removeTop green">* Ordering more than maximum quantity requires approval after order is placed.</p>
                         </div>
-                        
+
                         <div class="c1">
                           <p>Min. Quantity</p>
                         </div>
-                        
+
                         <div class="c1">
                           <p>Max. Quantity<span class='green'>*</span></p>
                         </div>
@@ -66,27 +66,27 @@
                         </div>
                     </div>
                     <div class="clear"></div>
-                    
+
                     <%= form_for @order do |f| %>
-                      
+
                       <% if @order.errors[:base].present? %>
                         <div class="error-container">
                           <span class="error-msg"><%= @order.errors[:base].first -%></span>
                         </div>
                       <% end -%>
-                      
+
                       <div class="productList">
                           <div class="c12">
                               <div class="row">
                                 <%= f.hidden_field :user_level_id %>
                                 <%= f.fields_for :order_items do |order_item| %>
                                     <%= render partial: "order_item", locals: {f: order_item} -%>
-                                <% end %> 
-                                   
+                                <% end %>
+
                               </div>
                           </div>
                       </div>
-                    
+
                       <div class="clear"></div>
                       <div class="cartButton">
   	                    <div class="c12">
@@ -94,8 +94,8 @@
   		                    <a class="primaryButton addCart right white-color-btn cart-submit" href="#">Add to Cart</a>
   	                    </div>
                       </div>
-                      
-                    <% end %>  
+
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="tooltip_templates hide">
         <span id="tooltip_content_info" class="tooltip_content">
             Minimum allowed value is .
@@ -126,7 +126,7 @@
             Maximum Quantity is . Ordering more than requires approval after order is placed.
         </span>
     </div>
-    
+
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.js" crossorigin="anonymous"></script>
